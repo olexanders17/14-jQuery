@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form validation</title>
+    <script src="underscore.js"></script>
+    <script src="jquery.js"></script>
+
+
+</head>
+<body>
+
+<form validate>
+    <input name="name" value="" validate-required validate-minlength="5" validate-maxlength="30"   id="rmm"/>
+
+    <input name="email" value="" validate-required validate-email/>
+
+    <input name="date" value="" validate-date/>
+
+    <input name="ip" value="" validate-regexp="^\d+\.\d+\.\d+\.\d+$"/>
+
+    <input type="submit" value="Send"/>
+</form>
+
+<script src="app1.js"></script>
+</body>
+</html>
