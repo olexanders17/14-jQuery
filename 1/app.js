@@ -7,16 +7,28 @@ $(function () {
             .slice(0, limit)
             .concat(HELLIP);
 
+
         //save
         this.attr('data-original-text', originalText);
+        this.attr('data-trunked', "trunked");
+
         var self = this;
 
         this.on('click', function () {
-            self.text(self.attr("data-original-text"));
+            //short text
+            if (self.attr('data-trunked') == 'trunked') {
+                self.text(txt);
+                self.attr('data-trunked', "notTrunked");
+            }
+            //original text
+            else {
+                self.text(self.attr("data-original-text"));
+                self.attr('data-trunked', "trunked");
+            }
+
         });
 
-
-        return this.text(txt);
+        return self;
     }
 
     var block = $("<div>");

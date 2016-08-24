@@ -6,22 +6,31 @@
     <script src="underscore.js"></script>
     <script src="jquery.js"></script>
 
+    <style>
+        .invalid {
+            border: 1px solid red;
+        }
 
+
+
+
+    </style>
 </head>
 <body>
 
-<form validate>
-    <input name="name" value="" validate-required validate-minlength="5" validate-maxlength="10"   id="m1"/>
+<form validate action="/go">
+    <input name="name" value="" validate-required validate-minlength="5" validate-maxlength="10" id="m1"/>
 
     <input name="email" value="" validate-required validate-email id="m2"/>
 
-    <input name="date" value="" validate-date/>
+    <input name="date" value="" validate-date id="m3"/>
 
-    <input name="ip" value="" validate-regexp="^\d+\.\d+\.\d+\.\d+$"/>
+    <input name="ip" value="" validate-regexp="^\d+\.\d+\.\d+\.\d+$" id="m4"/>
 
     <input type="submit" value="Send"/>
 </form>
 
+<div id="validation-info"> invalid validation </div>
 <script src="app1.js"></script>
 </body>
 </html>

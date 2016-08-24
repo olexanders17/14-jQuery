@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background: black;
+
+        }
+
+        .item {
+            width: 90px;
+            height: 110px;
+            background: white;
+            border: 1px white solid;
+            display: inline-block;
+            text-align: center;
+            line-height: 110px;
+            border-radius: 10px;
+            font-size: 40px;
+            margin: 10px;
+            box-shadow: 2px 2px white, 0px 7px rgba(207, 214, 207, 0.86);
+        }
+
+        .container {
+            margin: auto;
+        }
+        .caption div{
+            color: #c4c4cb;
+            display: inline-block;
+            margin-top: 10px;
+            width: 90px;
+            margin-left: 22px;
+        }
+
+        .top-label {
+            color: #c4c4cb;
+            font-size: 1.8em ;
+            margin-left: 80px;
+            margin-bottom: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="top-label">We're coming soon..</div>
+
+<div class="container" data-countdown data-countdown-start="92:00:02:15">
+    <div class="item" id="day">-</div>
+    <div class="item" id="hour">-</div>
+    <div class="item" id="min">-</div>
+    <div class="item" id="sec">-</div>
+
+</div>
+
+<div class="caption">
+    <div>DAYS</div>
+    <div>HOURS</div>
+    <div>MINUTES</div>
+    <div>SECONDS</div>
+</div>
+
+
+
+
+<script>
+    var i = 0;
+    var rawDate = document.getElementsByClassName('container')[0].getAttribute("data-countdown-start");
+    var dayT = parseInt(rawDate.split(':')[0]);
+    var hourT = parseInt(rawDate.split(':')[1]);
+    var minT = parseInt(rawDate.split(':')[2]);
+    var secT = parseInt(rawDate.split(':')[3]);
+    var minDiv = document.getElementById('sec');
+
+    var startDate = new Date();
+    var countdownDate = new Date(0, 0, dayT, hourT, minT, secT,0);
+
+
+    function drawWatch() {
+
+
+        var timePassed=new Date(new Date().getTime()-startDate.getTime());
+        var showDate= new Date (countdownDate.getTime()-timePassed.getTime());
+
+        document.getElementById('day').textContent=showDate.getDate()+ Math.floor((countdownDate.getMonth()))*30;
+        document.getElementById('hour').textContent=showDate.getHours();
+        document.getElementById('min').textContent=showDate.getMinutes();
+        document.getElementById('sec').textContent=showDate.getSeconds();
+
+
+    }
+
+    timer = setInterval(drawWatch, 1000);
+
+
+</script>
+
+
+</body>
+</html>
